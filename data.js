@@ -1,3 +1,27 @@
+export const categories = [
+  {
+    id: 0,
+    name: "All",
+  },
+  {
+    id: 1,
+    name: "Beauty",
+  },
+
+  {
+    id: 2,
+    name: "Fragrances",
+  },
+  {
+    id: 3,
+    name: "Furniture",
+  },
+  {
+    id: 4,
+    name: "Groceries",
+  },
+];
+
 export const products = [
   {
     id: 1,
