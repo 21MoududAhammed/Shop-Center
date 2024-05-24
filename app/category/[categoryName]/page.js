@@ -3,7 +3,6 @@ import Contact from "@/app/components/Contact";
 import ProductCard from "@/app/components/ProductCard";
 import { categories } from "@/data";
 import { getCategoryBasedProducts } from "@/utils";
-import { result } from "lodash";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -15,8 +14,8 @@ export default function CategoryPage() {
   const productsCategory = categoryNameArray[categoryNameArray.length - 1];
 
   useEffect(() => {
-    const result = getCategoryBasedProducts(productsCategory);
-    setProducts(result);
+    const productsContainer = getCategoryBasedProducts(productsCategory);
+    setProducts(productsContainer);
   }, [productsCategory]);
 
   return (
@@ -25,7 +24,7 @@ export default function CategoryPage() {
       <main>
         {/* Product section start */}
         <section className="w-11/12 lg:w-10/12 max-w-7xl mx-auto py-0 lg:py-10 lg:flex justify-between items-start">
-            {/* categories  */}
+          {/* categories  */}
           <div className="w-full flex items-center justify-between lg:block lg:w-2/12 my-10 lg:my-0 lg:mt-4">
             {categories.map((category) => {
               const categoryName = category.name.toLowerCase();
@@ -52,7 +51,7 @@ export default function CategoryPage() {
               }
             })}
           </div>
-            {/* products  */}
+          {/* products  */}
           <div className="sticky top-0 right-0 w-full lg:w-10/12 grid grid-cols-2 gap-4 lg:grid-cols-3 my-4 lg:my-10">
             {products.length > 0 &&
               products.map((product) => (
